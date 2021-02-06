@@ -2,10 +2,7 @@
 
 require 'vendor/autoload.php';
 
-$token = '865d4a0cd590f9ec440520bfe30ff1f6';
-
 $client = new \Humantech\Zoho\Recruit\Api\Client\Client();
-
 
 $testClientGetRecords = function () use ($client) {
 

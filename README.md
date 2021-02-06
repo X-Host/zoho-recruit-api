@@ -18,7 +18,7 @@ The installation process can be performed by two ways, using the [packagist](htt
 Open a terminal and tip the below command:
 
 ```sh
-$ composer require humantech/zoho-recruit-api
+$ composer require 88jobs/zoho-recruit-api
 ```
 
 ### Cloning
