@@ -1,16 +1,16 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Tests\Client;
+namespace Project88\Zoho\Recruit\Api\Tests\Client;
 
-use Humantech\Zoho\Recruit\Api\Client\HttpApiException;
-use Humantech\Zoho\Recruit\Api\Tests\TestCase;
+use Project88\Zoho\Recruit\Api\Client\HttpApiException;
+use Project88\Zoho\Recruit\Api\Tests\TestCase;
 
 class HttpApiExceptionTest extends TestCase
 {
     public function testInheritedAbstractException()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Client\\HttpApiException'
+            '\\Project88\\Zoho\\Recruit\\Api\\Client\\HttpApiException'
         );
 
         $this->assertEquals(
@@ -24,7 +24,7 @@ class HttpApiExceptionTest extends TestCase
         $exception = new HttpApiException('fake_message', 1, 'http://fake');
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Client\\HttpApiException',
+            '\\Project88\\Zoho\\Recruit\\Api\\Client\\HttpApiException',
             $exception
         );
 

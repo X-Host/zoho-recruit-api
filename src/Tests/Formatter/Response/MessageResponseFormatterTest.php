@@ -1,20 +1,20 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Tests\Formatter\Response;
+namespace Project88\Zoho\Recruit\Api\Tests\Formatter\Response;
 
-use Humantech\Zoho\Recruit\Api\Formatter\Response\MessageResponseFormatter;
-use Humantech\Zoho\Recruit\Api\Tests\TestCase;
+use Project88\Zoho\Recruit\Api\Formatter\Response\MessageResponseFormatter;
+use Project88\Zoho\Recruit\Api\Tests\TestCase;
 
 class MessageResponseFormatterTest extends TestCase
 {
     public function testImplementsFormatterInterface()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\Response\\MessageResponseFormatter'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\Response\\MessageResponseFormatter'
         );
 
         $this->assertTrue($reflection->implementsInterface(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface'
         ));
     }
 

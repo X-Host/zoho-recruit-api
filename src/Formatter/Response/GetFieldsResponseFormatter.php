@@ -1,8 +1,8 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Formatter\Response;
+namespace Project88\Zoho\Recruit\Api\Formatter\Response;
 
-use Humantech\Zoho\Recruit\Api\Formatter\FormatterInterface;
+use Project88\Zoho\Recruit\Api\Formatter\FormatterInterface;
 
 class GetFieldsResponseFormatter implements FormatterInterface
 {

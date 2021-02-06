@@ -1,20 +1,20 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Tests\Formatter\Request;
+namespace Project88\Zoho\Recruit\Api\Tests\Formatter\Request;
 
-use Humantech\Zoho\Recruit\Api\Formatter\Request\XmlDataRequestFormatter;
-use Humantech\Zoho\Recruit\Api\Tests\TestCase;
+use Project88\Zoho\Recruit\Api\Formatter\Request\XmlDataRequestFormatter;
+use Project88\Zoho\Recruit\Api\Tests\TestCase;
 
 class XmlDataRequestFormatterTest extends TestCase
 {
     public function testImplementsFormatterInterface()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\Request\\XmlDataRequestFormatter'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\Request\\XmlDataRequestFormatter'
         );
 
         $this->assertTrue($reflection->implementsInterface(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface'
         ));
     }
 

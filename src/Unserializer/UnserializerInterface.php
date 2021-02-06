@@ -1,6 +1,6 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Unserializer;
+namespace Project88\Zoho\Recruit\Api\Unserializer;
 
 interface UnserializerInterface
 {

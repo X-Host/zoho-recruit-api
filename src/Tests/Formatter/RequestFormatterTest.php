@@ -1,9 +1,9 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Tests\Formatter;
+namespace Project88\Zoho\Recruit\Api\Tests\Formatter;
 
-use Humantech\Zoho\Recruit\Api\Formatter\RequestFormatter;
-use Humantech\Zoho\Recruit\Api\Tests\TestCase;
+use Project88\Zoho\Recruit\Api\Formatter\RequestFormatter;
+use Project88\Zoho\Recruit\Api\Tests\TestCase;
 
 class RequestFormatterTest extends TestCase
 {
@@ -18,11 +18,11 @@ class RequestFormatterTest extends TestCase
     public function testInheritedAbstractFormatter()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\RequestFormatter'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\RequestFormatter'
         );
 
         $this->assertEquals(
-            'Humantech\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter',
+            'Project88\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter',
             $reflection->getParentClass()->getName()
         );
     }
@@ -30,11 +30,11 @@ class RequestFormatterTest extends TestCase
     public function testImplementsFormatterInterface()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\RequestFormatter'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\RequestFormatter'
         );
 
         $this->assertTrue($reflection->implementsInterface(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface'
         ));
     }
 
@@ -51,7 +51,7 @@ class RequestFormatterTest extends TestCase
         );
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\RequestFormatter',
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\RequestFormatter',
             $formatter->formatter($data)
         );
 
@@ -68,7 +68,7 @@ class RequestFormatterTest extends TestCase
         );
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\RequestFormatter',
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\RequestFormatter',
             $formatter->formatter($data)
         );
 

@@ -2,7 +2,7 @@
 
 require 'vendor/autoload.php';
 
-$client = new \Humantech\Zoho\Recruit\Api\Client\Client();
+$client = new \Project88\Zoho\Recruit\Api\Client\Client();
 
 $testClientGetRecords = function () use ($client) {
 

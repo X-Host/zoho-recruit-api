@@ -1,9 +1,9 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Tests\Formatter\Response;
+namespace Project88\Zoho\Recruit\Api\Tests\Formatter\Response;
 
-use Humantech\Zoho\Recruit\Api\Formatter\Response\GenericResponseItemFormatter;
-use Humantech\Zoho\Recruit\Api\Tests\TestCase;
+use Project88\Zoho\Recruit\Api\Formatter\Response\GenericResponseItemFormatter;
+use Project88\Zoho\Recruit\Api\Tests\TestCase;
 
 class GenericResponseItemFormatterTest extends TestCase
 {
@@ -160,11 +160,11 @@ class GenericResponseItemFormatterTest extends TestCase
     public function testImplementsFormatterInterface()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\Response\\GenericResponseItemFormatter'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\Response\\GenericResponseItemFormatter'
         );
 
         $this->assertTrue($reflection->implementsInterface(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface'
         ));
     }
 

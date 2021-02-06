@@ -1,27 +1,27 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Tests\Formatter\Response;
+namespace Project88\Zoho\Recruit\Api\Tests\Formatter\Response;
 
 use GuzzleHttp\Psr7\Response;
-use Humantech\Zoho\Recruit\Api\Formatter\Response\DownloadFileResponseFormatter;
-use Humantech\Zoho\Recruit\Api\Formatter\Response\ErrorResponseFormatter;
-use Humantech\Zoho\Recruit\Api\Tests\TestCase;
+use Project88\Zoho\Recruit\Api\Formatter\Response\DownloadFileResponseFormatter;
+use Project88\Zoho\Recruit\Api\Formatter\Response\ErrorResponseFormatter;
+use Project88\Zoho\Recruit\Api\Tests\TestCase;
 
 class DownloadFileResponseFormatterTest extends TestCase
 {
     public function testImplementsFormatterInterface()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\Response\\DownloadFileResponseFormatter'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\Response\\DownloadFileResponseFormatter'
         );
 
         $this->assertTrue($reflection->implementsInterface(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface'
         ));
     }
 
     /**
-     * @expectedException \Humantech\Zoho\Recruit\Api\Client\HttpApiException
+     * @expectedException \Project88\Zoho\Recruit\Api\Client\HttpApiException
      */
     public function testErrorFormatterClass()
     {
@@ -48,7 +48,7 @@ class DownloadFileResponseFormatterTest extends TestCase
         $formatter = new DownloadFileResponseFormatter();
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\Response\\ErrorResponseFormatter',
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\Response\\ErrorResponseFormatter',
             $this->invokeMethod($formatter, 'getErrorResponseFormatter')
         );
     }
@@ -73,7 +73,7 @@ class DownloadFileResponseFormatterTest extends TestCase
      */
     private function getDownloadFileResponseFormatterMock(array $methods)
     {
-        return $this->getMockBuilder('\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\Response\\DownloadFileResponseFormatter')
+        return $this->getMockBuilder('\\Project88\\Zoho\\Recruit\\Api\\Formatter\\Response\\DownloadFileResponseFormatter')
             ->disableOriginalConstructor()
             ->setMethods($methods)
             ->getMock()

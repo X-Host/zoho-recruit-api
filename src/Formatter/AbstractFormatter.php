@@ -1,9 +1,9 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Formatter;
+namespace Project88\Zoho\Recruit\Api\Formatter;
 
-use Humantech\Zoho\Recruit\Api\Client\HttpApiException;
-use Humantech\Zoho\Recruit\Api\Formatter\Response\ErrorResponseFormatter;
+use Project88\Zoho\Recruit\Api\Client\HttpApiException;
+use Project88\Zoho\Recruit\Api\Formatter\Response\ErrorResponseFormatter;
 
 abstract class AbstractFormatter implements FormatterInterface
 {

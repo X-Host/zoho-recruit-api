@@ -1,14 +1,14 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Formatter;
+namespace Project88\Zoho\Recruit\Api\Formatter;
 
-use Humantech\Zoho\Recruit\Api\Formatter\Response\ErrorResponseFormatter;
-use Humantech\Zoho\Recruit\Api\Formatter\Response\GenericResponseFormatter;
-use Humantech\Zoho\Recruit\Api\Formatter\Response\GetFieldsResponseFormatter;
-use Humantech\Zoho\Recruit\Api\Formatter\Response\GetModulesResponseFormatter;
-use Humantech\Zoho\Recruit\Api\Formatter\Response\MessageResponseFormatter;
-use Humantech\Zoho\Recruit\Api\Formatter\Response\DownloadFileResponseFormatter;
-use Humantech\Zoho\Recruit\Api\Formatter\Response\NoDataResponseFormatter;
+use Project88\Zoho\Recruit\Api\Formatter\Response\ErrorResponseFormatter;
+use Project88\Zoho\Recruit\Api\Formatter\Response\GenericResponseFormatter;
+use Project88\Zoho\Recruit\Api\Formatter\Response\GetFieldsResponseFormatter;
+use Project88\Zoho\Recruit\Api\Formatter\Response\GetModulesResponseFormatter;
+use Project88\Zoho\Recruit\Api\Formatter\Response\MessageResponseFormatter;
+use Project88\Zoho\Recruit\Api\Formatter\Response\DownloadFileResponseFormatter;
+use Project88\Zoho\Recruit\Api\Formatter\Response\NoDataResponseFormatter;
 
 class ResponseFormatter extends AbstractFormatter implements FormatterInterface
 {

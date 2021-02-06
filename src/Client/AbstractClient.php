@@ -1,6 +1,6 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Client;
+namespace Project88\Zoho\Recruit\Api\Client;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;

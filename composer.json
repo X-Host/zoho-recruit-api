@@ -9,7 +9,7 @@
         }
     ],
     "autoload": {
-        "psr-4": {"Humantech\\Zoho\\Recruit\\Api\\": "src/"}
+        "psr-4": {"Project88\\Zoho\\Recruit\\Api\\": "src/"}
     },
     "minimum-stability": "stable",
     "require": {

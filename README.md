@@ -24,7 +24,7 @@ $ composer require 88jobs/zoho-recruit-api
 ### Cloning
 
 ```sh
-$ git clone https://github.com/humantech/zoho-recruit-api.git
+$ git clone https://github.com/88jobs/zoho-recruit-api.git
 $ composer install
 ```
 
@@ -45,7 +45,7 @@ can get the records from Candidates like the following example:
 ```php
 <?php
 
-$client = new \Humantech\Zoho\Recruit\Api\Client\Client($token);
+$client = new \Project88\Zoho\Recruit\Api\Client\Client($token);
 
 $jobOpenings = $client->getRecords('JobOpenings');
 

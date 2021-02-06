@@ -1,39 +1,39 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Tests\Unserializer;
+namespace Project88\Zoho\Recruit\Api\Tests\Unserializer;
 
-use Humantech\Zoho\Recruit\Api\Tests\TestCase;
-use Humantech\Zoho\Recruit\Api\Unserializer\UnserializerBuilder;
+use Project88\Zoho\Recruit\Api\Tests\TestCase;
+use Project88\Zoho\Recruit\Api\Unserializer\UnserializerBuilder;
 
 class UnserializerBuilderTest extends TestCase
 {
     public function unserializerProvider()
     {
         return array(
-            array('json',  '\\Humantech\\Zoho\\Recruit\\Api\\Unserializer\\JsonUnserializer'),
-            array('JsOn',  '\\Humantech\\Zoho\\Recruit\\Api\\Unserializer\\JsonUnserializer'),
-            array(' json', '\\Humantech\\Zoho\\Recruit\\Api\\Unserializer\\JsonUnserializer'),
-            array('json ', '\\Humantech\\Zoho\\Recruit\\Api\\Unserializer\\JsonUnserializer'),
-            array('JSON ', '\\Humantech\\Zoho\\Recruit\\Api\\Unserializer\\JsonUnserializer'),
-            array('xml',   '\\Humantech\\Zoho\\Recruit\\Api\\Unserializer\\XmlUnserializer'),
+            array('json',  '\\Project88\\Zoho\\Recruit\\Api\\Unserializer\\JsonUnserializer'),
+            array('JsOn',  '\\Project88\\Zoho\\Recruit\\Api\\Unserializer\\JsonUnserializer'),
+            array(' json', '\\Project88\\Zoho\\Recruit\\Api\\Unserializer\\JsonUnserializer'),
+            array('json ', '\\Project88\\Zoho\\Recruit\\Api\\Unserializer\\JsonUnserializer'),
+            array('JSON ', '\\Project88\\Zoho\\Recruit\\Api\\Unserializer\\JsonUnserializer'),
+            array('xml',   '\\Project88\\Zoho\\Recruit\\Api\\Unserializer\\XmlUnserializer'),
         );
     }
 
     public function testImplementsUnserializerInterface()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Unserializer\\UnserializerBuilder'
+            '\\Project88\\Zoho\\Recruit\\Api\\Unserializer\\UnserializerBuilder'
         );
 
         $this->assertTrue($reflection->implementsInterface(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Unserializer\\UnserializerInterface'
+            '\\Project88\\Zoho\\Recruit\\Api\\Unserializer\\UnserializerInterface'
         ));
     }
 
     public function testConstructIsNotPublic()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Unserializer\\UnserializerBuilder'
+            '\\Project88\\Zoho\\Recruit\\Api\\Unserializer\\UnserializerBuilder'
         );
 
         $this->assertFalse($reflection->getConstructor()->isPublic());
@@ -44,7 +44,7 @@ class UnserializerBuilderTest extends TestCase
         $instance = UnserializerBuilder::create('json');
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Unserializer\\UnserializerInterface',
+            '\\Project88\\Zoho\\Recruit\\Api\\Unserializer\\UnserializerInterface',
             $instance
         );
     }
@@ -54,7 +54,7 @@ class UnserializerBuilderTest extends TestCase
      */
     public function testGetUnserializerByResponseFormat($format, $expectedResult)
     {
-        $instance = $this->getMockBuilder('\\Humantech\\Zoho\\Recruit\\Api\\Unserializer\\UnserializerBuilder')
+        $instance = $this->getMockBuilder('\\Project88\\Zoho\\Recruit\\Api\\Unserializer\\UnserializerBuilder')
             ->disableOriginalConstructor()
             ->getMock()
         ;
@@ -69,7 +69,7 @@ class UnserializerBuilderTest extends TestCase
      */
     public function testGetUnserializerByResponseFormatException()
     {
-        $instance = $this->getMockBuilder('\\Humantech\\Zoho\\Recruit\\Api\\Unserializer\\UnserializerBuilder')
+        $instance = $this->getMockBuilder('\\Project88\\Zoho\\Recruit\\Api\\Unserializer\\UnserializerBuilder')
             ->disableOriginalConstructor()
             ->getMock()
         ;

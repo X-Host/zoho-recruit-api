@@ -1,6 +1,6 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Formatter;
+namespace Project88\Zoho\Recruit\Api\Formatter;
 
 interface FormatterInterface
 {

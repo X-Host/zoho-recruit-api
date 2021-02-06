@@ -1,9 +1,9 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Tests\Client;
+namespace Project88\Zoho\Recruit\Api\Tests\Client;
 
-use Humantech\Zoho\Recruit\Api\Client\Client;
-use Humantech\Zoho\Recruit\Api\Tests\TestCase;
+use Project88\Zoho\Recruit\Api\Client\Client;
+use Project88\Zoho\Recruit\Api\Tests\TestCase;
 
 class ClientTestCase extends TestCase
 {
@@ -33,7 +33,7 @@ class ClientTestCase extends TestCase
      */
     public function getClientMock(array $methods)
     {
-        return $this->getMockBuilder('\\Humantech\\Zoho\\Recruit\\Api\\Client\\Client')
+        return $this->getMockBuilder('\\Project88\\Zoho\\Recruit\\Api\\Client\\Client')
             ->disableOriginalConstructor()
             ->setMethods($methods)
             ->getMock()

@@ -1,11 +1,11 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Client;
+namespace Project88\Zoho\Recruit\Api\Client;
 
 use GuzzleHttp\Psr7\Response;
-use Humantech\Zoho\Recruit\Api\Formatter\RequestFormatter;
-use Humantech\Zoho\Recruit\Api\Formatter\ResponseFormatter;
-use Humantech\Zoho\Recruit\Api\Unserializer\UnserializerBuilder;
+use Project88\Zoho\Recruit\Api\Formatter\RequestFormatter;
+use Project88\Zoho\Recruit\Api\Formatter\ResponseFormatter;
+use Project88\Zoho\Recruit\Api\Unserializer\UnserializerBuilder;
 
 class Client extends AbstractClient implements ClientInterface
 {

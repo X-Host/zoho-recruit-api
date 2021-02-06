@@ -1,8 +1,8 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Formatter;
+namespace Project88\Zoho\Recruit\Api\Formatter;
 
-use Humantech\Zoho\Recruit\Api\Formatter\Request\XmlDataRequestFormatter;
+use Project88\Zoho\Recruit\Api\Formatter\Request\XmlDataRequestFormatter;
 
 class RequestFormatter extends AbstractFormatter implements FormatterInterface
 {

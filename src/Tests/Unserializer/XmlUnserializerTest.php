@@ -1,20 +1,20 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Tests\Unserializer;
+namespace Project88\Zoho\Recruit\Api\Tests\Unserializer;
 
-use Humantech\Zoho\Recruit\Api\Tests\TestCase;
-use Humantech\Zoho\Recruit\Api\Unserializer\XmlUnserializer;
+use Project88\Zoho\Recruit\Api\Tests\TestCase;
+use Project88\Zoho\Recruit\Api\Unserializer\XmlUnserializer;
 
 class XmlUnserializerTest extends TestCase
 {
     public function testImplementsUnserializerInterface()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Unserializer\\XmlUnserializer'
+            '\\Project88\\Zoho\\Recruit\\Api\\Unserializer\\XmlUnserializer'
         );
 
         $this->assertTrue($reflection->implementsInterface(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Unserializer\\UnserializerInterface'
+            '\\Project88\\Zoho\\Recruit\\Api\\Unserializer\\UnserializerInterface'
         ));
     }
 

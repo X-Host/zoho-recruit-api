@@ -1,14 +1,14 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Tests\Formatter;
+namespace Project88\Zoho\Recruit\Api\Tests\Formatter;
 
-use Humantech\Zoho\Recruit\Api\Tests\TestCase;
+use Project88\Zoho\Recruit\Api\Tests\TestCase;
 
 class AbstractFormatterTest extends TestCase
 {
     protected function getAbstractFormatterMock()
     {
-        return $this->getMockBuilder('\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter')
+        return $this->getMockBuilder('\\Project88\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter')
             ->disableOriginalConstructor()
             ->getMockForAbstractClass()
         ;
@@ -17,7 +17,7 @@ class AbstractFormatterTest extends TestCase
     public function testIsAbstractClass()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter'
         );
 
         $this->assertTrue($reflection->isAbstract());
@@ -26,18 +26,18 @@ class AbstractFormatterTest extends TestCase
     public function testImplementsFormatterInterface()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter'
         );
 
         $this->assertTrue($reflection->implementsInterface(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface'
         ));
     }
 
     public function testConstructIsNotPublic()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter'
         );
 
         $this->assertFalse($reflection->getConstructor()->isPublic());
@@ -48,7 +48,7 @@ class AbstractFormatterTest extends TestCase
         $instance = $this->getAbstractFormatterMock()->create('fake_module', 'fake_method');
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter',
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter',
             $instance
         );
     }
@@ -56,7 +56,7 @@ class AbstractFormatterTest extends TestCase
     public function testCreateVisibility()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter'
         );
 
         $this->assertTrue($reflection->getMethod('create')->isPublic());
@@ -102,10 +102,10 @@ class AbstractFormatterTest extends TestCase
     {
         $instance = $this->getAbstractFormatterMock()->create('fake_module', 'fake_method');
 
-        $formatter = $this->getMockBuilder('\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface')->getMock();
+        $formatter = $this->getMockBuilder('\\Project88\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface')->getMock();
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter',
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter',
             $this->invokeMethod($instance, 'setFormatter', array($formatter))
         );
     }
@@ -114,7 +114,7 @@ class AbstractFormatterTest extends TestCase
     {
         $instance = $this->getAbstractFormatterMock()->create('fake_module', 'fake_method');
 
-        $formatter = $this->getMockBuilder('\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface')->getMock();
+        $formatter = $this->getMockBuilder('\\Project88\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface')->getMock();
 
         $formatter
             ->expects($this->once())
@@ -149,7 +149,7 @@ class AbstractFormatterTest extends TestCase
     {
         $instance = $this->getAbstractFormatterMock()->create('fake_module', 'fake_method');
 
-        $formatter = $this->getMockBuilder('\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface')->getMock();
+        $formatter = $this->getMockBuilder('\\Project88\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface')->getMock();
 
         $formatter
             ->expects($this->once())
@@ -163,13 +163,13 @@ class AbstractFormatterTest extends TestCase
     }
 
     /**
-     * @expectedException \Humantech\Zoho\Recruit\Api\Client\HttpApiException
+     * @expectedException \Project88\Zoho\Recruit\Api\Client\HttpApiException
      */
     public function testGetOutputHttpApiException()
     {
         $instance = $this->getAbstractFormatterMock()->create('fake_module', 'fake_method');
 
-        $formatter = $this->getMockBuilder('\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\Response\\ErrorResponseFormatter')->getMock();
+        $formatter = $this->getMockBuilder('\\Project88\\Zoho\\Recruit\\Api\\Formatter\\Response\\ErrorResponseFormatter')->getMock();
 
         $formatter
             ->expects($this->once())

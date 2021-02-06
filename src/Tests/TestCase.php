@@ -1,6 +1,6 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Tests;
+namespace Project88\Zoho\Recruit\Api\Tests;
 
 class TestCase extends \PHPUnit_Framework_TestCase
 {

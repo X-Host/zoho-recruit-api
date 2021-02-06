@@ -1,6 +1,6 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Client;
+namespace Project88\Zoho\Recruit\Api\Client;
 
 interface ClientInterface
 {

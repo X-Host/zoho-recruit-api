@@ -1,10 +1,10 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Tests\Formatter;
+namespace Project88\Zoho\Recruit\Api\Tests\Formatter;
 
 use GuzzleHttp\Psr7\Response;
-use Humantech\Zoho\Recruit\Api\Formatter\ResponseFormatter;
-use Humantech\Zoho\Recruit\Api\Tests\TestCase;
+use Project88\Zoho\Recruit\Api\Formatter\ResponseFormatter;
+use Project88\Zoho\Recruit\Api\Tests\TestCase;
 
 class ResponseFormatterTest extends TestCase
 {
@@ -24,11 +24,11 @@ class ResponseFormatterTest extends TestCase
     public function testInheritedAbstractFormatter()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\ResponseFormatter'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\ResponseFormatter'
         );
 
         $this->assertEquals(
-            'Humantech\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter',
+            'Project88\\Zoho\\Recruit\\Api\\Formatter\\AbstractFormatter',
             $reflection->getParentClass()->getName()
         );
     }
@@ -36,11 +36,11 @@ class ResponseFormatterTest extends TestCase
     public function testImplementsFormatterInterface()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\ResponseFormatter'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\ResponseFormatter'
         );
 
         $this->assertTrue($reflection->implementsInterface(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface'
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\FormatterInterface'
         ));
     }
 
@@ -55,7 +55,7 @@ class ResponseFormatterTest extends TestCase
         $formatter->formatter($data);
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\Response\\DownloadFileResponseFormatter',
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\Response\\DownloadFileResponseFormatter',
             $this->invokeMethod($formatter, 'getFormatter')
         );
     }
@@ -73,7 +73,7 @@ class ResponseFormatterTest extends TestCase
         $formatter->formatter($data);
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\Response\\NoDataResponseFormatter',
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\Response\\NoDataResponseFormatter',
             $this->invokeMethod($formatter, 'getFormatter')
         );
     }
@@ -93,7 +93,7 @@ class ResponseFormatterTest extends TestCase
         $formatter->formatter($data);
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\Response\\MessageResponseFormatter',
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\Response\\MessageResponseFormatter',
             $this->invokeMethod($formatter, 'getFormatter')
         );
 
@@ -108,7 +108,7 @@ class ResponseFormatterTest extends TestCase
         $formatter->formatter($data);
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\Response\\MessageResponseFormatter',
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\Response\\MessageResponseFormatter',
             $this->invokeMethod($formatter, 'getFormatter')
         );
     }
@@ -130,7 +130,7 @@ class ResponseFormatterTest extends TestCase
         $formatter->formatter($data);
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\Response\\ErrorResponseFormatter',
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\Response\\ErrorResponseFormatter',
             $this->invokeMethod($formatter, 'getFormatter')
         );
     }
@@ -148,7 +148,7 @@ class ResponseFormatterTest extends TestCase
         $formatter->formatter($data);
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\Response\\GetFieldsResponseFormatter',
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\Response\\GetFieldsResponseFormatter',
             $this->invokeMethod($formatter, 'getFormatter')
         );
     }
@@ -166,7 +166,7 @@ class ResponseFormatterTest extends TestCase
         $formatter->formatter($data);
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\Response\\GetModulesResponseFormatter',
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\Response\\GetModulesResponseFormatter',
             $this->invokeMethod($formatter, 'getFormatter')
         );
     }
@@ -191,7 +191,7 @@ class ResponseFormatterTest extends TestCase
         $formatter->formatter($data);
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\Response\\GenericResponseFormatter',
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\Response\\GenericResponseFormatter',
             $this->invokeMethod($formatter, 'getFormatter')
         );
     }
@@ -206,7 +206,7 @@ class ResponseFormatterTest extends TestCase
         );
 
         $this->assertInstanceOf(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Formatter\\ResponseFormatter',
+            '\\Project88\\Zoho\\Recruit\\Api\\Formatter\\ResponseFormatter',
             $formatter->formatter($data)
         );
 

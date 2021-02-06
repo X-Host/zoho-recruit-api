@@ -1,20 +1,20 @@
 <?php
 
-namespace Humantech\Zoho\Recruit\Api\Tests\Client;
+namespace Project88\Zoho\Recruit\Api\Tests\Client;
 
 use GuzzleHttp\Psr7\Response;
-use Humantech\Zoho\Recruit\Api\Client\Client;
+use Project88\Zoho\Recruit\Api\Client\Client;
 
 class ClientTest extends ClientTestCase
 {
     public function testInheritedAbstractClient()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Client\\Client'
+            '\\Project88\\Zoho\\Recruit\\Api\\Client\\Client'
         );
 
         $this->assertEquals(
-            'Humantech\\Zoho\\Recruit\\Api\\Client\\AbstractClient',
+            'Project88\\Zoho\\Recruit\\Api\\Client\\AbstractClient',
             $reflection->getParentClass()->getName()
         );
     }
@@ -22,11 +22,11 @@ class ClientTest extends ClientTestCase
     public function testImplementsClientInterface()
     {
         $reflection = new \ReflectionClass(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Client\\Client'
+            '\\Project88\\Zoho\\Recruit\\Api\\Client\\Client'
         );
 
         $this->assertTrue($reflection->implementsInterface(
-            '\\Humantech\\Zoho\\Recruit\\Api\\Client\\ClientInterface'
+            '\\Project88\\Zoho\\Recruit\\Api\\Client\\ClientInterface'
         ));
     }
 
@@ -418,7 +418,7 @@ class ClientTest extends ClientTestCase
     }
 
     /**
-     * @expectedException \Humantech\Zoho\Recruit\Api\Client\HttpApiException
+     * @expectedException \Project88\Zoho\Recruit\Api\Client\HttpApiException
      *
      * @dataProvider dataProviderChangeStatus
      */
@@ -463,7 +463,7 @@ class ClientTest extends ClientTestCase
     }
 
     /**
-     * @expectedException \Humantech\Zoho\Recruit\Api\Client\HttpApiException
+     * @expectedException \Project88\Zoho\Recruit\Api\Client\HttpApiException
      *
      * @dataProvider dataProviderUploadFile
      */
@@ -496,7 +496,7 @@ class ClientTest extends ClientTestCase
     }
 
     /**
-     * @expectedException \Humantech\Zoho\Recruit\Api\Client\HttpApiException
+     * @expectedException \Project88\Zoho\Recruit\Api\Client\HttpApiException
      */
     public function testDownloadFileHttpApiException()
     {
@@ -563,7 +563,7 @@ class ClientTest extends ClientTestCase
     }
 
     /**
-     * @expectedException \Humantech\Zoho\Recruit\Api\Client\HttpApiException
+     * @expectedException \Project88\Zoho\Recruit\Api\Client\HttpApiException
      *
      * @dataProvider dataProviderUploadPhoto
      */
@@ -600,7 +600,7 @@ class ClientTest extends ClientTestCase
     }
 
     /**
-     * @expectedException \Humantech\Zoho\Recruit\Api\Client\HttpApiException
+     * @expectedException \Project88\Zoho\Recruit\Api\Client\HttpApiException
      *
      * @dataProvider dataProviderUploadPhoto
      */
@@ -621,7 +621,7 @@ class ClientTest extends ClientTestCase
     }
 
     /**
-     * @expectedException \Humantech\Zoho\Recruit\Api\Client\HttpApiException
+     * @expectedException \Project88\Zoho\Recruit\Api\Client\HttpApiException
      *
      * @dataProvider dataProviderUploadPhoto
      */
