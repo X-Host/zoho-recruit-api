@@ -5,14 +5,11 @@ namespace Humantech\Zoho\Recruit\Api\Client;
 use GuzzleHttp\Psr7\Response;
 use Humantech\Zoho\Recruit\Api\Formatter\RequestFormatter;
 use Humantech\Zoho\Recruit\Api\Formatter\ResponseFormatter;
-use Humantech\Zoho\Recruit\Api\Formatter\ResponseListFormatter;
-use Humantech\Zoho\Recruit\Api\Formatter\ResponseRowFormatter;
-use Humantech\Zoho\Recruit\Api\Formatter\XmlRequestDataFormatter;
 use Humantech\Zoho\Recruit\Api\Unserializer\UnserializerBuilder;
 
 class Client extends AbstractClient implements ClientInterface
 {
-    const API_BASE_URL = 'https://recruit.zoho.com/recruit/private/%s/%s/%s?authtoken=%s';
+    const API_BASE_URL = 'https://recruit.zoho.com/recruit/private/%s/%s/%s';
 
     const API_DEFAULT_VERSION = 2;
 
@@ -23,23 +20,17 @@ class Client extends AbstractClient implements ClientInterface
     const API_RESPONSE_FORMAT_XML = 'xml';
 
     /**
-     * @var string
+     * Client constructor.
      */
-    protected $authToken;
-
-    /**
-     * @param string $authToken
-     */
-    public function __construct($authToken)
+    public function __construct()
     {
-        $this->authToken = $authToken;
     }
 
     /**
-     * @param  string $module
-     * @param  string $method
-     * @param  string $responseFormat
-     * @param  array  $requestParameters
+     * @param string $module
+     * @param string $method
+     * @param string $responseFormat
+     * @param array $requestParameters
      *
      * @return string
      *
@@ -67,15 +58,14 @@ class Client extends AbstractClient implements ClientInterface
             self::API_BASE_URL,
             $responseFormat,
             $module,
-            $method,
-            $this->getAuthToken()
+            $method
         );
 
         return $uri . $this->generateQueryStringByRequestParams($requestParameters);
     }
 
     /**
-     * @param  array $requestParameters
+     * @param array $requestParameters
      *
      * @return string
      */
@@ -83,8 +73,7 @@ class Client extends AbstractClient implements ClientInterface
     {
         return empty($requestParameters)
             ? ''
-            : '&' . http_build_query($requestParameters)
-        ;
+            : '&' . http_build_query($requestParameters);
     }
 
     /**
@@ -130,8 +119,8 @@ class Client extends AbstractClient implements ClientInterface
     }
 
     /**
-     * @param  Response $response
-     * @param  string   $responseFormat
+     * @param Response $response
+     * @param string $responseFormat
      *
      * @return array
      */
@@ -140,14 +129,6 @@ class Client extends AbstractClient implements ClientInterface
         return UnserializerBuilder::create($responseFormat)->unserialize(
             $response->getBody()->getContents()
         );
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getAuthToken()
-    {
-        return $this->authToken;
     }
 
     /**
@@ -192,7 +173,7 @@ class Client extends AbstractClient implements ClientInterface
         $response = $this->sendRequest('POST',
             $this->getUri($module, $method, $responseFormat, $additionalParams),
             [
-                'body'    => http_build_query(['xmlData' => $xmlData]),
+                'body' => http_build_query(['xmlData' => $xmlData]),
                 'headers' => ['Content-type' => 'application/x-www-form-urlencoded'],
             ]
         );
@@ -209,7 +190,7 @@ class Client extends AbstractClient implements ClientInterface
     {
         $method = 'updateRecords';
 
-        $additionalParams['id']      = $id;
+        $additionalParams['id'] = $id;
         $additionalParams['xmlData'] = RequestFormatter::create($module, 'updateRecords')->formatter($data)->getOutput();
 
         $response = $this->sendRequest('POST', $this->getUri($module, $method, $responseFormat, $additionalParams));
@@ -242,7 +223,7 @@ class Client extends AbstractClient implements ClientInterface
         $method = 'getRelatedRecords';
 
         $additionalParams['parentModule'] = $parentModule;
-        $additionalParams['id']           = $id;
+        $additionalParams['id'] = $id;
 
         $response = $this->sendRequest('GET', $this->getUri($module, $method, $responseFormat, $additionalParams));
 
@@ -323,7 +304,7 @@ class Client extends AbstractClient implements ClientInterface
             throw new HttpApiException(sprintf('The new status "%s" is invalid!', $candidateStatus));
         }
 
-        $additionalParams['candidateIds']    = implode(',', $candidateIds);
+        $additionalParams['candidateIds'] = implode(',', $candidateIds);
         $additionalParams['candidateStatus'] = $candidateStatus;
 
         $response = $this->sendRequest('POST', $this->getUri($module, $method, $responseFormat, $additionalParams));
@@ -348,7 +329,7 @@ class Client extends AbstractClient implements ClientInterface
             throw new HttpApiException(sprintf('The type of upload "%s" is invalid!', $type));
         }
 
-        $additionalParams['id']   = $id;
+        $additionalParams['id'] = $id;
         $additionalParams['type'] = $type;
 
         $response = $this->sendFile($this->getUri($module, $method, $responseFormat, $additionalParams), array(
@@ -363,24 +344,24 @@ class Client extends AbstractClient implements ClientInterface
     /**
      * @inheritdoc
      */
-     public function downloadFile($id, array $additionalParams = array(), $responseFormat = self::API_RESPONSE_FORMAT_JSON)
-     {
-         $module = 'Candidates';
-         $method = 'downloadFile';
+    public function downloadFile($id, array $additionalParams = array(), $responseFormat = self::API_RESPONSE_FORMAT_JSON)
+    {
+        $module = 'Candidates';
+        $method = 'downloadFile';
 
-         $additionalParams['id'] = $id;
+        $additionalParams['id'] = $id;
 
-         $response = $this->sendRequest('GET', $this->getUri($module, $method, $responseFormat, $additionalParams));
+        $response = $this->sendRequest('GET', $this->getUri($module, $method, $responseFormat, $additionalParams));
 
-         $unserializedData = $this->getUnserializedData($response, $responseFormat);
+        $unserializedData = $this->getUnserializedData($response, $responseFormat);
 
-         $formatterData = array(
-             'download' => $response,
-             'params'   => array('unserializedData' => $unserializedData)
-         );
+        $formatterData = array(
+            'download' => $response,
+            'params' => array('unserializedData' => $unserializedData)
+        );
 
-         return ResponseFormatter::create($module, $method)->formatter($formatterData)->getOutput();
-     }
+        return ResponseFormatter::create($module, $method)->formatter($formatterData)->getOutput();
+    }
 
     /**
      * @inheritdoc
@@ -390,7 +371,7 @@ class Client extends AbstractClient implements ClientInterface
         $module = 'Candidates';
         $method = 'associateJobOpening';
 
-        $additionalParams['jobIds']       = implode(',', $jobIds);
+        $additionalParams['jobIds'] = implode(',', $jobIds);
         $additionalParams['candidateIds'] = implode(',', $candidateIds);
 
         $response = $this->sendRequest('POST', $this->getUri($module, $method, $responseFormat, $additionalParams));
@@ -447,7 +428,7 @@ class Client extends AbstractClient implements ClientInterface
 
         $formatterData = array(
             'download' => $response,
-            'params'   => array('unserializedData' => $unserializedData)
+            'params' => array('unserializedData' => $unserializedData)
         );
 
         return ResponseFormatter::create($module, $method)->formatter($formatterData)->getOutput();
@@ -511,7 +492,7 @@ class Client extends AbstractClient implements ClientInterface
     {
         $method = 'getSearchRecords';
 
-        $additionalParams['selectColumns']   = $selectColumns;
+        $additionalParams['selectColumns'] = $selectColumns;
         $additionalParams['searchCondition'] = $searchCondition;
 
         $response = $this->sendRequest('GET', $this->getUri($module, $method, $responseFormat, $additionalParams));

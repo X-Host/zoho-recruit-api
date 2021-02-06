@@ -30,11 +30,6 @@ class ClientTest extends ClientTestCase
         ));
     }
 
-    public function testGetAuthToken()
-    {
-        $this->assertEquals('fake_token', $this->getClientOriginalInstance()->getAuthToken());
-    }
-
     public function dataProviderGetUri()
     {
         $dataProvider = array();
@@ -130,7 +125,7 @@ class ClientTest extends ClientTestCase
             $params
         ));
 
-        $expectedResult = sprintf(Client::API_BASE_URL, $format, $module, $method, 'fake_token');
+        $expectedResult = sprintf(Client::API_BASE_URL, $format, $module, $method);
 
         $this->assertContains($expectedResult, $result);
     }

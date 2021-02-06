@@ -4,16 +4,8 @@ require 'vendor/autoload.php';
 
 $token = '865d4a0cd590f9ec440520bfe30ff1f6';
 
-$client = new \Humantech\Zoho\Recruit\Api\Client\Client($token);
+$client = new \Humantech\Zoho\Recruit\Api\Client\Client();
 
-$testAuth = function () {
-
-    $authClient = new \Humantech\Zoho\Recruit\Api\Client\AuthenticationClient();
-
-    $token = $authClient->generateAuthToken('zoho@humantech.com.br', 'CRSV0404#');
-
-    var_dump($token);
-};
 
 $testClientGetRecords = function () use ($client) {
 

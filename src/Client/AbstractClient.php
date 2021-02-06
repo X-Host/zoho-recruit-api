@@ -36,7 +36,10 @@ abstract class AbstractClient
     protected function mergeGuzzleRequestExtraParams(array $extraParameters)
     {
         $defaultParams = array(
-            'headers'         => array(),
+            'headers'         => [
+                'Authorization' => 'Zoho-oauthtoken ' . env('ZOHO_ACCESS_TOKEN'),
+                // 'Accept'        => 'application/json',
+            ],
             'body'            => null,
             'protocolVersion' => '1.1',
         );

@@ -19,13 +19,11 @@ class ClientTestCase extends TestCase
     }
 
     /**
-     * @param  string $token
-     *
      * @return Client
      */
-    public function getClientOriginalInstance($token = 'fake_token')
+    public function getClientOriginalInstance()
     {
-        return new Client($token);
+        return new Client();
     }
 
     /**
