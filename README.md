@@ -35,17 +35,7 @@ This package is compatible with PSR-2 and PSR-4.
 
 ### Getting the Auth Token
 
-To get the Auth token you have that instance a class called AuthenticationClient and pass two
-parameters to a method called generateAuthToken, a username and a plain password like the example below.
-
-```php
-<?php
-
-$authClient = new \Humantech\Zoho\Recruit\Api\Client\AuthenticationClient();
-
-$token = $authClient->generateAuthToken('youruser@yourcompany.com', 'your-password');
-
-```
+[OAuth 2.0 for Zoho Recruit APIs - An Overview](https://www.zoho.com/recruit/developer-guide/apiv2/oauth-overview.html)
 
 ### Calling the getRecords
 
