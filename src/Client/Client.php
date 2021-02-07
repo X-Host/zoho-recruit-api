@@ -9,7 +9,7 @@ use Project88\Zoho\Recruit\Api\Unserializer\UnserializerBuilder;
 
 class Client extends AbstractClient implements ClientInterface
 {
-    const API_BASE_URL = 'https://recruit.zoho.com/recruit/private/%s/%s/%s';
+    const API_BASE_URL = 'https://recruit.zoho.com/recruit/private/%s/%s/%s?';
 
     const API_DEFAULT_VERSION = 2;
 
