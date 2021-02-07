@@ -8,6 +8,8 @@ use GuzzleHttp\Psr7\Response;
 
 abstract class AbstractClient
 {
+    protected $oauthToken;
+
     /**
      * @param  string $method
      * @param  string $uri
@@ -36,15 +38,15 @@ abstract class AbstractClient
     protected function mergeGuzzleRequestExtraParams(array $extraParameters)
     {
         $defaultParams = array(
-            'headers'         => [
-                'Authorization' => 'Zoho-oauthtoken ' . env('ZOHO_ACCESS_TOKEN'),
-                // 'Accept'        => 'application/json',
-            ],
+            'headers'         => [],
             'body'            => null,
             'protocolVersion' => '1.1',
         );
 
-        return array_merge($defaultParams, $extraParameters);
+        $mergedParams = array_merge($defaultParams, $extraParameters);
+        $mergedParams['headers']['Authorization'] = 'Zoho-oauthtoken ' . $this->oauthToken;
+
+        return $mergedParams;
     }
 
     /**

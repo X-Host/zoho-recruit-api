@@ -21,9 +21,11 @@ class Client extends AbstractClient implements ClientInterface
 
     /**
      * Client constructor.
+     * @param $oauthToken
      */
-    public function __construct()
+    public function __construct($oauthToken)
     {
+        $this->oauthToken = $oauthToken;
     }
 
     /**
