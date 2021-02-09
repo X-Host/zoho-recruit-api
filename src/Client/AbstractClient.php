@@ -117,9 +117,8 @@ abstract class AbstractClient
     protected function getOptionsCurlUpload($uri, array $postFields)
     {
         return array(
-            CURLOPT_HEADER => [
-                'Authorization: Zoho-oauthtoken ' . $this->oauthToken,
-            ],
+            CURLOPT_HEADER => 0,
+            CURLOPT_HTTPHEADER => ['Authorization: Zoho-oauthtoken ' . $this->oauthToken],
             CURLOPT_VERBOSE => 0,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_URL => $uri,
