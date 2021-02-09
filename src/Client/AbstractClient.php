@@ -11,9 +11,9 @@ abstract class AbstractClient
     protected $oauthToken;
 
     /**
-     * @param  string $method
-     * @param  string $uri
-     * @param  array  $extraParameters
+     * @param string $method
+     * @param string $uri
+     * @param array $extraParameters
      *
      * @return Request
      */
@@ -31,15 +31,15 @@ abstract class AbstractClient
     }
 
     /**
-     * @param  array $extraParameters
+     * @param array $extraParameters
      *
      * @return array
      */
     protected function mergeGuzzleRequestExtraParams(array $extraParameters)
     {
         $defaultParams = array(
-            'headers'         => [],
-            'body'            => null,
+            'headers' => [],
+            'body' => null,
             'protocolVersion' => '1.1',
         );
 
@@ -58,10 +58,10 @@ abstract class AbstractClient
     }
 
     /**
-     * @param  string $method
-     * @param  string $uri
-     * @param  array  $extraParameters
-     * @param  array  $clientOptions
+     * @param string $method
+     * @param string $uri
+     * @param array $extraParameters
+     * @param array $clientOptions
      *
      * @return Response
      *
@@ -85,7 +85,7 @@ abstract class AbstractClient
     }
 
     /**
-     * @param  resource $curlResource
+     * @param resource $curlResource
      * @return mixed
      */
     protected function execCurlUpload($curlResource)
@@ -94,8 +94,8 @@ abstract class AbstractClient
     }
 
     /**
-     * @param  resource $curlResource
-     * @param  array    $options
+     * @param resource $curlResource
+     * @param array $options
      *
      * @return bool
      */
@@ -109,26 +109,28 @@ abstract class AbstractClient
     }
 
     /**
-     * @param  string $uri
-     * @param  array  $postFields
+     * @param string $uri
+     * @param array $postFields
      *
      * @return array
      */
     protected function getOptionsCurlUpload($uri, array $postFields)
     {
         return array(
-            CURLOPT_HEADER         => 0,
-            CURLOPT_VERBOSE        => 0,
+            CURLOPT_HEADER => [
+                'Authorization: Zoho-oauthtoken ' . $this->oauthToken,
+            ],
+            CURLOPT_VERBOSE => 0,
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_URL            => $uri,
-            CURLOPT_POST           => true,
-            CURLOPT_POSTFIELDS     => $postFields,
+            CURLOPT_URL => $uri,
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $postFields,
         );
     }
 
     /**
-     * @param  string $uri
-     * @param  array  $postFields
+     * @param string $uri
+     * @param array $postFields
      *
      * @return string|bool
      */
@@ -136,7 +138,7 @@ abstract class AbstractClient
     {
         $curlResource = $this->initCurlUpload();
 
-        $curlOptions  = $this->getOptionsCurlUpload($uri, $postFields);
+        $curlOptions = $this->getOptionsCurlUpload($uri, $postFields);
 
         $curlResource = $this->setOptionsCurlUpload($curlResource, $curlOptions);
 
