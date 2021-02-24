@@ -1,19 +1,23 @@
 {
-    "name": "88jobs/zoho-recruit-api",
+    "name": "X-Host/zoho-recruit-api",
     "description": "Zoho Recruit API",
     "license": "MIT",
     "authors": [
         {
             "name": "João Paulo Cercal",
             "email": "jpcercal@gmail.com"
-        }
+        },
+	{
+	    "name": "X Host UK",
+	    "email": "support@xhost.uk"
+	}
     ],
     "autoload": {
         "psr-4": {"Project88\\Zoho\\Recruit\\Api\\": "src/"}
     },
     "minimum-stability": "stable",
     "require": {
-        "php": "~5.5 || >=7.0 <7.2",
+        "php": "~5.5 || >=7.0",
         "guzzlehttp/guzzle": "~6.0"
     },
     "require-dev": {
